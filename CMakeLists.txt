@@ -8,7 +8,9 @@ endif()
 find_package(catkin REQUIRED COMPONENTS cpp_common rostime)
 
 find_package(Boost COMPONENTS regex system thread)
-list(REMOVE_ITEM Boost_LIBRARIES "-lpthread")
+if(WIN32)
+  list(REMOVE_ITEM Boost_LIBRARIES "-lpthread")
+endif()
 
 # select rosconsole backend
 set(ROSCONSOLE_BACKEND "" CACHE STRING "Type of rosconsole backend, one of 'log4cxx', 'glog', 'print'")
