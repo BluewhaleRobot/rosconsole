@@ -5,6 +5,9 @@ if(NOT WIN32)
   set_directory_properties(PROPERTIES COMPILE_OPTIONS "-Wall;-Wextra")
 endif()
 
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fPIC")
+
 find_package(catkin REQUIRED COMPONENTS cpp_common rostime)
 
 find_package(Boost COMPONENTS regex system thread)
